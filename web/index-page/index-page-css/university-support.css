@@ -3,7 +3,7 @@
     background-image: url("../index-page-img/index-support-university-background.svg");
     background-position: center;
     background-size: cover;
-    min-height: 200vh;
+    min-height: 190vh;
     text-align: center;
 }
 
@@ -27,15 +27,15 @@
 }
 
 .university-support__title {
-    padding: 50px 10px 30px 10px;
+    padding: 130px 10px 20px 10px;
     font-size: 36px;
     color: var(--dark-text-color);
     font-weight: 600;
 }
 
 .university-support__description {
-    padding: 20px;
-    font-size: 20px;
+    padding: 30px 10px;
+    font-size: 20px 10px;
     color: var(--black-text-color);
     font-weight: 500;
 }
