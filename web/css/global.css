@@ -32,6 +32,7 @@
   --team-section-form-update-message-warning: #ffa06c;
   --team-section-form-update-message-error: #ff6c6c;
   --footer-background-color: #D0EDEB;
+  font-size: 16px;
   font-family: Montserrat, sans-serif;
   scroll-behavior: smooth;
 }
