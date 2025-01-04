@@ -156,27 +156,31 @@
 .faq__another-questions {
     padding-bottom: 30px;
 }
+
 @media (max-width: 700px) {
+
+
     .accordion__button {
         transition: none;
-        background-color: var(--accordion-dark-background-color);  
-        font-weight: bold; 
-        color: var(--dark-text-color);  
-        pointer-events: none;  
+        background-color: var(--accordion-dark-background-color);
+        font-weight: bold;
+        color: var(--dark-text-color);
+        pointer-events: none;
+        text-align: center;
     }
 
     .accordion__button::before {
-        content: none; 
+        content: none;
     }
 
     .accordion__content {
         max-height: none;
-        padding: 10px 15px;  
-        background-color: var(--accordion-light-background-color); 
+        padding: 10px 15px;
+        background-color: var(--accordion-light-background-color);
     }
 
     .accordion__button.active {
-        background-color: var(--accordion-dark-background-color); 
+        background-color: var(--accordion-dark-background-color);
         font-weight: bold;
         color: var(--dark-text-color);
     }
