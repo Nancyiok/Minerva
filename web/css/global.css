@@ -31,7 +31,15 @@
   --team-section-form-update-message-success: #80e080;
   --team-section-form-update-message-warning: #ffa06c;
   --team-section-form-update-message-error: #ff6c6c;
+  --login-form-message-error: #ff6c6c;
   --footer-background-color: #D0EDEB;
+  --button-decoration-color: #1F545B;
+  --form-decoration-color: #1F545B;
+  --button-decoration-color: #1F545B;
+  --form-registration-message-success: #80e080;
+  --form-registration-message-error: #ff6c6c;
+  --indicator-background-color-done-step: #4AA4B0;
+  --indicator-background-color-current-step: #1F545B;
   font-size: 16px;
   font-family: Montserrat, sans-serif;
   scroll-behavior: smooth;
@@ -76,5 +84,9 @@ li {
 
 body {
   min-width: 320px;
+}
 
+input {
+  font-family: Montserrat,
+    sans-serif;
 }

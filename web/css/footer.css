@@ -123,3 +123,14 @@
         align-items: center;
     }
 }
+
+.footer__column a {
+    text-decoration: none;
+    color: var(--dark-text-color);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.footer__item {
+    margin: 10px 0;
+}

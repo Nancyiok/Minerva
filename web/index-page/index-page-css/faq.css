@@ -159,7 +159,6 @@
 
 @media (max-width: 700px) {
 
-
     .accordion__button {
         transition: none;
         background-color: var(--accordion-dark-background-color);
