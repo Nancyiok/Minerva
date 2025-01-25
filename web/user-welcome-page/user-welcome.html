@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-<body class="hidden">
+<body>
     <header data-hx-trigger="load" data-hx-swap="outerHTML"
         data-hx-get="../global-elements/global.header-user.partial.html">
     </header>
     <aside class="welcome-window">
         <div class="welcome-window__content">
             <div class="welcome-window__header">
-                <h3 class="welcome-window__title">Jane Doe</h3>
+                <h3 class="welcome-window__title">Привіт!</h3>
                 <img class="welcome-window__img" src="./img/hand-welcome.png" alt="Ласкаво просимо!" />
             </div>
             <p class="welcome-window__text">
@@ -27,9 +27,9 @@
             </p>
         </div>
     </aside>
-    <section class="user-welcome-news-section">
-        <div id="root"></div>
-        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- <section class="user-welcome-news-section"> -->
+    <!-- <div id="root"></div> -->
+    <!-- <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
         <script type="text/babel">
@@ -111,7 +111,48 @@
 
             const root = ReactDOM.createRoot(document.getElementById("root"));
             root.render(<UserWelcomeNews />);
-        </script>
+        </script> -->
+    <!-- </section> -->
+    <section class="user-welcome-news-section">
+        <div class="user-welcome-news">
+            <div class="user-welcome-news-header">
+                <div class="user-welcome-news-header__title">
+                    <h2>Останні <br />новини</h2>
+                    <img class="user-welcome-news-header__title-img" src="./img/news-icon.svg" alt="Новини" />
+                </div>
+                <div class="user-welcome-news-header__description">
+                    <p>Не пропустіть новини, поради з побудови кар’єри та історії успіху студентів, які вже знайшли
+                        роботу мрії з нашою допомогою. Ми постійно оновлюємо інформацію, щоб допомогти вам зробити
+                        перший крок до професійного успіху.</p>
+                </div>
+            </div>
+
+            <div class="user-welcome-news-card-container">
+                <div class="user-welcome-news-card">
+                    <img class="user-welcome-news-card__img" src="./img/photo-for-news-article.svg" alt="Нова стаття" />
+                    <h3 class="user-welcome-news-card__title">Нова стаття</h3>
+                    <p class="user-welcome-news-card__description">Текст текст текст текст текст текст текст текст текст
+                        текст текст текст текст текст текст текст текст текст текст</p>
+                    <button class="user-welcome-news-card__button">Читати</button>
+                </div>
+
+                <div class="user-welcome-news-card">
+                    <img class="user-welcome-news-card__img" src="./img/photo-for-news-article.svg" alt="Нова стаття" />
+                    <h3 class="user-welcome-news-card__title">Нова стаття</h3>
+                    <p class="user-welcome-news-card__description">Текст текст текст текст текст текст текст текст текст
+                        текст текст текст текст текст текст текст текст текст текст</p>
+                    <button class="user-welcome-news-card__button">Читати</button>
+                </div>
+
+                <div class="user-welcome-news-card">
+                    <img class="user-welcome-news-card__img" src="./img/photo-for-news-article.svg" alt="Нова стаття" />
+                    <h3 class="user-welcome-news-card__title">Нова стаття</h3>
+                    <p class="user-welcome-news-card__description">Текст текст текст текст текст текст текст текст текст
+                        текст текст текст текст текст текст текст текст текст текст</p>
+                    <button class="user-welcome-news-card__button">Читати</button>
+                </div>
+            </div>
+        </div>
     </section>
     <hr class="header-navigation__decoration-line">
     <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./search-job.partial.html">

@@ -4,7 +4,6 @@
     gap: 30px;
     align-items: center;
     justify-content: center;
-    animation: fadeIn 1s ease-out forwards;
 }
 
 body.hidden {
@@ -14,7 +13,6 @@ body.hidden {
 
 body.visible {
     visibility: visible;
-    animation: fadeInPage 1s ease-in-out;
 }
 
 
@@ -109,6 +107,12 @@ body.visible {
 .welcome-window__text {
     font-size: 0.8rem;
     font-weight: 400;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .user-welcome-news-header__title h2 {
