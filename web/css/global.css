@@ -40,6 +40,15 @@
   --form-registration-message-error: #ff6c6c;
   --indicator-background-color-done-step: #4AA4B0;
   --indicator-background-color-current-step: #1F545B;
+  --news-card-section-color: #F0FFFE;
+  --news-card-descriptionbackground-color: #4AA4B0;
+  --background-welcome-modal: #1F545B;
+  --input-search-job-color: #CDEEEB;
+  --input-search-job-button-icon: #1F545B;
+  --input-search-job-button: #75B0B8;
+  --card-serch-job-background: #4AA4B0;
+  --card-serch-job-background-accent: #ffff;
+  --job-search-section-background: #F0FFFE;
   font-size: 16px;
   font-family: Montserrat, sans-serif;
   scroll-behavior: smooth;

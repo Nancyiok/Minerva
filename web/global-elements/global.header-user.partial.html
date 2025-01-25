@@ -9,11 +9,8 @@
                     </svg>
                 </div>
                 <div class="header-navigation__menu-logo">
-                    <img src="./web/global-elements/global-elements-img/logo-for-header.svg" alt="Minerva logo"
+                    <img src="/web/global-elements/global-elements-img/logo-for-header.svg" alt="Minerva logo"
                         class="header-navigation__logo">
-                </div>
-                <div class="header-navigation__menu-start-button">
-                    <button class="header-navigation__button--start">Розпочати</button>
                 </div>
             </div>
             <hr class="header-navigation__decoration-line">
@@ -21,7 +18,7 @@
                 <div class="header-navigation__menu-links">
                     <ul class="header-navigation__menu-list">
                         <li class="header-navigation__menu-item">
-                            <a href="#" class="header-navigation__menu-link">Головна</a>
+                            <a href="/index.html" class="header-navigation__menu-link">Головна</a>
                         </li>
                         <li class="header-navigation__menu-item">
                             <a href="#" class="header-navigation__menu-link">Про нас</a>
@@ -55,14 +52,11 @@
                                     <li class="header-navigation__menu-item">
                                         <a href="#" class="header-navigation__menu-link">Наші Контакти</a>
                                     </li>
-                                    <li class="header-navigation__menu-item">
-                                        <a href="/web/log-in/log-in.html"><button class="header-navigation__menu-button--login">Увійти</button></a>
-                                    </li>
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                        </li>
+                        <li class="header-navigation__menu-item"><button class="profile-setup">Профіль</button></li>
+                        <li class="header-navigation__menu-item"><button class="log-out">Вийти</button></li>
                     </ul>
                 </div>
             </div>
@@ -71,13 +65,15 @@
     <div class="header-navigation__menu-computer">
         <div class="header-navigation__menu-links-computer">
             <div class="header-navigation__menu-logo">
-                <img src="/web/global-elements/global-elements-img/logo-for-header.svg" alt="Minerva logo"
-                    class="header-navigation__logo">
+                <a href="/index.html">
+                    <img src="/web/global-elements/global-elements-img/logo-for-header.svg" alt="Minerva logo"
+                        class="header-navigation__logo">
+                </a>
             </div>
             <ul class="header-navigation__menu-list-computer">
 
                 <li class="header-navigation__menu-item">
-                    <a href="#" class="header-navigation__menu-link">Головна</a>
+                    <a href="/index.html" class="header-navigation__menu-link">Головна</a>
                 </li>
                 <li class="header-navigation__menu-item">
                     <a href="#" class="header-navigation__menu-link">Про нас</a>
@@ -99,12 +95,10 @@
                     <a href="#" class="header-navigation__menu-link">Контакти</a>
                 </li>
             </ul>
-            <div class="header-navigation__menu-buttons">
-                <a href="/web/sign-up-page/sign-up-page.html"><button class="header-navigation__menu-button--login">Приєднатися</button></a>
-                <div class="header-navigation__menu-item">
-                    <a href="/web/log-in/log-in.html"><button class="header-navigation__menu-button--login">Увійти</button></a>
-                </div>
-            </div>
+            <button class="user-account-button">
+                <img src="/web/global-elements/global-elements-img/user-icon.svg" alt="User Account"
+                    class="user-account-button__img">
+            </button>
         </div>
         <hr class="header-navigation__decoration-line">
         <div class="header-navigation__menu-item-dropdown-computer">
@@ -127,5 +121,18 @@
                 <hr class="header-navigation__menu-line">
             </ul>
         </div>
+        <div class="header-navigation__menu-item-dropdown-user-account-computer">
+            <ul>
+                <li class="header-navigation__menu-item" id="user-account__menu-item">
+                    <a href="#" class="header-navigation__menu-link">Налаштування</a>
+                </li>
+                <hr class="header-navigation__menu-line">
+                <li class="header-navigation__menu-item">
+                    <a href="#" class="header-navigation__menu-link">Вийти</a>
+                </li>
+                <hr class="header-navigation__menu-line">
+            </ul>
+        </div>
+
     </div>
 </header>

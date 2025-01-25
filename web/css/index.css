@@ -1,5 +1,5 @@
-@import "global.css";
-@import "global-header.css";
+@import "./global.css";
+@import "./global-header.css";
 @import "../index-page/index-page-css/hero-section.css";
 @import "../index-page/index-page-css/about-us-section.css";
 @import "../index-page/index-page-css/proposals.css";

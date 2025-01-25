@@ -10,6 +10,7 @@
     width: 120px;
     height: 120px;
 }
+
 .header-navigation__button--start,
 .header-navigation__menu-button--login {
     background-color: var(--button-dark-color);
@@ -180,19 +181,45 @@ body.active {
         position: relative;
     }
 
+    .header-navigation__menu-item-dropdown-user-account-computer.active {
+        display: block;
+        width: 240px;
+        background-color: var(--background-drop-header-menu);
+        position: absolute;
+        margin-left: 80%;
+        z-index: 3;
+    }
+
     .header-navigation__menu-item-dropdown-computer.active {
         display: block;
         width: 240px;
         background-color: var(--background-drop-header-menu);
         position: absolute;
         left: 44%;
+        z-index: 2;
     }
+
+    #user-account__menu-item {
+        position: relative;
+    }
+
+    .header-navigation__menu-item-dropdown-user-account-computer.active hr {
+        border: none;
+        border-top: 1px solid var(--decoration-line-color);
+        transform: scaleY(0.5);
+    }
+
+    .header-navigation__menu-item-dropdown-user-account-computer {
+        display: none;
+    }
+
 
     .header-navigation__menu-item-dropdown-computer.active hr {
         border: none;
         border-top: 1px solid var(--decoration-line-color);
         transform: scaleY(0.5);
     }
+
 
     .header-navigation__menu-item-container-computer {
         display: flex;
@@ -224,4 +251,16 @@ body.active {
         transform: rotate(180deg);
     }
 
+}
+
+.profile-setup,
+.log-out {
+    font-weight: 500;
+    background-color: var(--button-dark-color);
+    color: var(--bright-text-color);
+    border: none;
+}
+
+.header-navigation__menu-item-dropdown-user-account-computer .header-navigation__menu-item .header-navigation__menu-link{
+color: var(--bright-text-color)
 }

@@ -134,3 +134,20 @@
 .footer__item {
     margin: 10px 0;
 }
+
+.user-account-button {
+    background-color: transparent;
+}
+
+
+.user-account-button img {
+    width: 70px;
+    height: 80px;
+}
+
+@media (min-width: 800px) {
+    .user-account-button img {
+        width: 100px;
+        height: 100px;
+    }
+}

@@ -1,3 +1,4 @@
+import serverURL from "../../js/global/server-url.js";
 const signInFormForgotPasswordLink = document.querySelector(".sign-in-form__forgot-password-link");
 const formContantInitual = document.querySelector(".sign-in__content");
 const formContantRecreatePassword = document.querySelector(".sign-in__content-forgot-password");
@@ -20,6 +21,7 @@ const submitPassword = document.querySelector(".sign-up-form__input--submit-pass
 const newPassword = document.querySelector(".sign-in-form__input--new-password");
 const changePasswordMessage = document.querySelector(".sign-in-form__message-change-password");
 const formMessageCode = document.querySelector(".sign-in-form__message-code");
+
 
 const steps = [
     formContantInitual,
@@ -49,108 +51,120 @@ signInFormForgotPasswordLink.addEventListener("click", (event) => {
     showStep(1);
 });
 
-buttonForgotPassword.addEventListener("click", async (event) => {
-    event.preventDefault();
-    showStep(2);
-});
-
-codeSentInput.addEventListener("click", (event) => {
-    event.preventDefault();
-    showStep(3);
-});
-
-changePasswordButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    showStep(4);
-});
-
 // buttonForgotPassword.addEventListener("click", async (event) => {
 //     event.preventDefault();
-//     if (resetPasswordEmail.value === "") {
-//         resetPasswordEmailMessage.innerHTML = `<p class="sumbit-step-problem">Поле не може бути пустим!</p>`;
-//         setTimeout(() => { resetPasswordEmailMessage.innerText = "" }, 1500);
-//         return;
-//     }
-//     else {
-//         try {
-//             const checkEmail = await fetch("#", {
-//                 method: "POST",
-//                 headers: { 'Content-Type': 'application/json' },
-//                 body: JSON.stringify({ Email: resetPasswordEmail.value })
-//             });
-
-//             if (checkEmail.ok) {
-//                 const checkingEmail = await checkEmail.json();
-//                 const code = checkingEmail.code;
-
-//                 if (checkingEmail.email !== resetPasswordEmail.value) {
-
-//                     resetPasswordEmailMessage.innerHTML = "";
-//                     setTimeout(() => {
-//                         resetPasswordEmailMessage.innerHTML = `<p class="sumbit-step-problem">Такої пошти не зареєсровано!</p>`
-//                     }, 1500);
-//                     return;
-//                 }
-
-//                 if (code) {
-//                     codeSentInput.addEventListener("click", (event) => {
-//                         event.preventDefault();
-//                         if (code === codeInput.value) {
-//                             showStep(3);
-//                         }
-//                         else {
-//                             formMessageCode.innerHTML = `<p class="sumbit-step-problem">Неправильний код!</p>`;
-//                             setTimeout(() => { formMessageCode.innerText = "" }, 1500);
-//                         }
-//                     });
-//                 }
-//             }
-//         } catch (error) {
-//             console.log(error);
-//             resetPasswordEmailMessage.innerHTML = `<p class="sumbit-step-problem">Щось пішло не так! Спробуйте ще раз!</p>`;
-//             setTimeout(() => { resetPasswordEmailMessage.innerText = "" }, 1500);
-//         }
-//     }
+//     showStep(2);
 // });
 
-
-
-// changePasswordButton.addEventListener("click", async (event) => {
+// codeSentInput.addEventListener("click", (event) => {
 //     event.preventDefault();
-//     if (newPassword.value !== submitPassword.value) {
-//         changePasswordMessage.innerHTML = `<p class="sumbit-step-problem">Паролі не співпадають!</p>`;
-//         return;
-//     }
-//     else if (!newPassword.value || !submitPassword.value) {
+//     showStep(3);
+// });
 
-//         changePasswordMessage.innerHTML = `<p class="sumbit-step-problem"Поля не можуть бути пустими!</p>`;
-//         return;
-//     }
-//     else if (!isValidPassword(newPassword.value)) {
-//         changePasswordMessage.innerHTML = `<p class="sumbit-step-problem"Пароль повинен містити великі літери, цифри та символи!</p>`;;
-//         return;
-//     }
-//     try {
-//         const checkEmail = await fetch("#", {
-//             method: "POST",
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify({ Password: newPassword.value })
-//         })
-//         if (checkEmail.ok) {
-//             showStep(4);
-//         }
-//         else {
-//             changePasswordMessage.innerHTML = `<p class="sumbit-step-problem">Щось пішло не так! Спробуйте ще раз!</p>`;;
-//             setTimeout(() => { changePasswordMessage.innerText = "" }, 1500);
-//         }
-//     }
-//     catch (error) {
-//         console.log(error);
-//         return;
-//     }
-// })
+// changePasswordButton.addEventListener("click", (event) => {
+//     event.preventDefault();
+//     showStep(4);
+// });
+
+buttonForgotPassword.addEventListener("click", async (event) => {
+    event.preventDefault();
+    if (resetPasswordEmail.value === "") {
+        resetPasswordEmailMessage.innerHTML = `<p class="sumbit-step-problem">Поле не може бути пустим!</p>`;
+        setTimeout(() => { resetPasswordEmailMessage.innerText = "" }, 1500);
+        return;
+    }
+    else {
+        try {
+            // const response3 = await fetch(url + "/api/EditProfile/DropPasswordCode", {
+            //     method: "POST",
+            //     headers: { 'Content-Type': 'application/json', },
+            //     body: JSON.stringify({
+            //         ID: ID,
+            //     }),
+            // });
+            const checkEmail = await fetch(`${serverURL}/api/EditProfile/DropPasswordCode`, {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ Email: resetPasswordEmail.value })
+            });
+
+            if (checkEmail.ok) {
+                showStep(2);
+                const checkingEmail = await checkEmail.json();
+                const code = checkingEmail.code;
+                console.log('Code:', code);
+                if (code) {
+                    codeSentInput.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        if (code === Number(codeInput.value)) {
+                            showStep(3);
+                        }
+                        else {
+                            formMessageCode.innerHTML = `<p class="sumbit-step-problem">Неправильний код!</p>`;
+                            setTimeout(() => { formMessageCode.innerText = "" }, 1500);
+                        }
+                    });
+                }
+            }
+            else {
+                const error = await checkEmail.json();
+                const errorMessage = error;
+                if (errorMessage == "ID is not valid") {
+                    formMessageCode.innerHTML = `<p class="sumbit-step-problem">Такого користувача не існує!</p>`;
+                    setTimeout(() => { formMessageCode.innerText = "" }, 1500);
+                }
+                else if (errorMessage == "Code not sent") {
+                    formMessageCode.innerHTML = `<p class="sumbit-step-problem">Проблеми з відправкою повідомлення!</p>`;
+                    setTimeout(() => { formMessageCode.innerText = "" }, 1500);
+                    console.error("EROR:", errorMessage);
+                }
+                else
+                    console.error("EROR:", errorMessage);
+            }
+        } catch (error) {
+            console.log(error);
+            resetPasswordEmailMessage.innerHTML = `<p class="sumbit-step-problem">Щось пішло не так! Спробуйте ще раз!</p>`;
+            setTimeout(() => { resetPasswordEmailMessage.innerText = "" }, 1500);
+        }
+    }
+});
+
+changePasswordButton.addEventListener("click", async (event) => {
+    event.preventDefault();
+    if (newPassword.value !== submitPassword.value) {
+        changePasswordMessage.innerHTML = `<p class="sumbit-step-problem">Паролі не співпадають!</p>`;
+        return;
+    }
+    else if (!newPassword.value || !submitPassword.value) {
+
+        changePasswordMessage.innerHTML = `<p class="sumbit-step-problem"Поля не можуть бути пустими!</p>`;
+        return;
+    }
+    else if (!isValidPassword(newPassword.value)) {
+        changePasswordMessage.innerHTML = `<p class="sumbit-step-problem"Пароль повинен містити великі літери, цифри та символи!</p>`;;
+        return;
+    }
+    try {
+        const checkEmail = await fetch(`${serverURL}/api/EditProfile/DropPassword`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ NewPassword: newPassword.value, Email: resetPasswordEmail.value })
+        })
+        if (checkEmail.ok) {
+            showStep(4);
+        }
+        else {
+            changePasswordMessage.innerHTML = `<p class="sumbit-step-problem">Щось пішло не так! Спробуйте ще раз!</p>`;;
+            setTimeout(() => { changePasswordMessage.innerText = "" }, 1500);
+        }
+    }
+    catch (error) {
+        console.log(error);
+        return;
+    }
+})
 
 
 signInFormBackButton1.addEventListener("click", (event) => {

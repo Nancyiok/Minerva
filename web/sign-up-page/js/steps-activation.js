@@ -207,16 +207,17 @@ nextButton.addEventListener("click", async (event) => {
                                         Testmode: true,
                                     }),
                                 });
-
+                                
                                 if (response.ok) {
                                     formMessage.innerHTML = '<p class="sign-up-form__message-success">Реєстрація успішна!</p>';
                                     setTimeout(() => {
-                                        window.location.href = "/welcome";
+                                        localStorage.setItem("login", login);
+                                        window.location.href = "./web/user-welcome-page/welcome-user-page.html";
                                     }, 1500);
                                 } else {
                                     const error = await response.text();
                                     console.error("Ошибка на сервере:", error);
-                                    formMessage.innerText = "Ошибка регистрации: " + error;
+                                    formMessage.innerText = "Помилка реєстрації: " + error;
                                     setTimeout(() => { formMessage.innerText = "" }, 1500);
                                 }
                             } catch (error) {
